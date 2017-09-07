@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
 
-    console.log(this.state.allCards)
+    // console.log(this.state.allCards)
 
     return (
       <div> <SingleDeckContainer allCards={this.state.allCards.results}/> </div>
