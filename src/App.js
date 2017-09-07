@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SingleDeckContainer from './SingleDeckContainer';
 
 class App extends Component {
 
@@ -23,11 +24,8 @@ class App extends Component {
     console.log(this.state.allCards)
 
     return (
-      <div className="App">
-        <p className="App-intro">
+      <div> <SingleDeckContainer allCards={this.state.allCards.results}/> </div>
 
-        </p>
-      </div>
     );
   }
 }
