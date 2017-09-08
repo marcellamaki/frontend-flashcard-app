@@ -11,23 +11,28 @@ class CardContainer extends React.Component {
       super(props);
 
       this.state = {
-        flipped: false
+        flipped: false,
+        answer: this.props.answer,
+        correctGuess: false
       }
     }
 
-    handleFlip = () => {
+    handleGuess = (event) => {
+      // console.log(this.state.answer)
+      // console.log(event.target.dataset.value)
       this.setState({
-        flipped: !this.state.flipped
+        flipped: !this.state.flipped,
+        correctGuess: (this.props.answer === event.target.dataset.value)
       })
     }
 
     render() {
       return(
-          <div className="card" onClick={this.handleFlip}>
+          <div className="card">
             {!this.state.flipped ?
-            <CardFront question={this.props.question}/>
+            <CardFront question={this.props.question} handleGuess={this.handleGuess}/>
               :
-            <CardBack answer={this.props.answer}/>
+            <CardBack answer={this.props.answer} correctGuess={this.state.correctGuess}/>
             }
           </div>
 
