@@ -2,7 +2,13 @@ import React from 'react'
 
 const CardFront = (props) => {
 	return(
-		<li key={props.key}>Question: {props.question.replace(/&quot;/g, '\"').replace(/&#039;/g, '\'')}</li>
+		<div key={props.key}>
+			<div className="content">
+			<div className="description">
+				Question: {props.question.replace(/&quot;/g, '\"').replace(/&#039;/g, '\'')}
+			</div>
+			</div>
+		</div>
 	)
 }
 

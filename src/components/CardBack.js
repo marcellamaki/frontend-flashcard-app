@@ -2,7 +2,11 @@ import React from 'react'
 
 const CardBack = (props) => {
 	return(
-		<li key={props.key}>Answer: {props.answer}</li>
+		<div>
+			<div className="header">
+				Answer: {props.answer}
+			</div>	
+		</div>
 	)
 }
 

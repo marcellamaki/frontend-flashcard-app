@@ -4,6 +4,7 @@ import CardBack from '../components/CardBack';
 
 
 
+
 class CardContainer extends React.Component {
 
     constructor(props){
@@ -12,10 +13,10 @@ class CardContainer extends React.Component {
 
     render() {
       return(
-        <div>
-          <CardFront question={this.props.question}/>
-          <CardBack answer={this.props.answer}/>
-        </div>
+          <div className="card">
+            <CardFront question={this.props.question}/>
+            <CardBack answer={this.props.answer}/>
+          </div>
 
       )
     }

@@ -15,8 +15,8 @@ class SingleDeckContainer extends React.Component {
 	  	<CardContainer key={index} question={card.question} answer={card.correct_answer} />)
 
     return(
-      <div>
-      	<ul>{triviaList}</ul>
+      <div className="ui cards">
+      	{triviaList}
       </div>
     )
   }
