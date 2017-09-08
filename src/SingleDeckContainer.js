@@ -1,5 +1,5 @@
 import React from 'react';
-import CardFront from './components/CardFront'
+import CardContainer from './containers/CardContainer'
 
 
 class SingleDeckContainer extends React.Component {
@@ -10,9 +10,9 @@ class SingleDeckContainer extends React.Component {
   }
 
   render() {
-	  
-	  const triviaList = this.props.allCards.map((card, index) => 
-	  	<CardFront key={index} category={card.category}/>)
+	  console.log(this.props.allCards)
+	  const triviaList = this.props.allCards.map((card, index) =>
+	  	<CardContainer key={index} question={card.question} answer={card.correct_answer} />)
 
     return(
       <div>
