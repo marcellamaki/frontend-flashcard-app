@@ -10,9 +10,16 @@ class App extends Component {
     super();
 
     this.state = {
-      allCards: ""
+      allCards: "",
+      score: 0
     }
   }
+
+  handleScoreChange = (isCorrect) => {
+    if (isCorrect) {
+      this.setState({score: (this.state.score + 1)})
+    }
+  } 
 
   componentDidMount(){
     fetch('https://opentdb.com/api.php?amount=20&type=boolean')
@@ -27,7 +34,12 @@ class App extends Component {
       return <div></div>
     } else {
       return (
-        <div> <SingleDeckContainer allCards={this.state.allCards.results}/> </div>
+        <div> 
+          <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} /> 
+          <div>
+            Your Score is: {this.state.score}
+          </div> 
+        </div>
 
       );
     }
