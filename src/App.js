@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SingleDeckContainer from './SingleDeckContainer';
+import NavBar from './components/NavBar'
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
     if (isCorrect) {
       this.setState({score: (this.state.score + 1)})
     }
-  } 
+  }
 
   componentDidMount(){
     fetch('https://opentdb.com/api.php?amount=20&type=boolean')
@@ -34,11 +35,14 @@ class App extends Component {
       return <div></div>
     } else {
       return (
-        <div> 
-          <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} /> 
+        <div >
+          <NavBar />
           <div>
-            Your Score is: {this.state.score}
-          </div> 
+            <h3 className="ui header">Your Score is: {this.state.score}</h3>
+          </div>
+          <div className="ui cards" style={{margin: "auto"}}>
+            <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} />
+          </div>
         </div>
 
       );
