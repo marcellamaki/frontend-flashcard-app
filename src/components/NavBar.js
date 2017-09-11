@@ -12,6 +12,9 @@ class NavBar extends React.Component {
           <Link to="/decks">My Decks</Link>
         </a>
         <div className="right menu">
+          <a className="ui item">
+            <Link to="/signup">Sign Up</Link>
+          </a>
 
           <a className="ui item">
             Logout

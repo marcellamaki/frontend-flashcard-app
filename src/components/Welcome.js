@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
-import SignupForm from './SignupForm.js'
 
 class Welcome extends React.Component {
 
@@ -17,7 +16,6 @@ class Welcome extends React.Component {
 		        </div>
 		    </div>
 		</div>
-			<SignupForm />
 			<div>
 				<img className="ui fluid image" src="https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?dpr=1&amp"/>
 			</div>
