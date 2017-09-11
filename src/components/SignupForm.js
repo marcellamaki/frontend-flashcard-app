@@ -9,9 +9,9 @@ class SignupForm extends React.Component {
 		this.state = {
 			name: '',
 			email: '',
-			password_digest: ''
+			password: ''
 		}
-		
+
 	}
 
 	handleChange = (event) => {
@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
 		const value = event.target.value
 
 		this.setState({
-			[target]: value 
+			[target]: value
 		})
 	}
 
@@ -30,7 +30,8 @@ class SignupForm extends React.Component {
 		const data = {
 			name: this.state.name,
 			email: this.state.email,
-			password_digest: this.state.password
+			password: this.state.password,
+			password_confirmation: this.state.password_confirmation
 		}
 
 		fetch('http://localhost:3000/api/v1/users', {
@@ -58,11 +59,11 @@ class SignupForm extends React.Component {
 					 </div>
 					 <div className="field">
 					    <label>Password</label>
-					    <input type="password" data-name="password_digest" placeholder="Password" onChange={this.handleChange}/>
+					    <input type="password" data-name="password" placeholder="Password" onChange={this.handleChange}/>
 					 </div>
 					 <div className="field">
 					    <label>Confirm Password</label>
-					    <input type="password" data-name="confirm_password" placeholder="Confirm Password" />
+					    <input type="password" data-name="password_confirmation" placeholder="Confirm Password" onChange={this.handleChange}/>
 					 </div>
 					 <button className="ui button" name="submit">Submit</button>
 				</form>
