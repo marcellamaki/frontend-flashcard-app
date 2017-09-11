@@ -39,7 +39,7 @@ class App extends Component {
         <div >
           <NavBar />
           <div className="ui cards" style={{margin: "auto"}}>
-            <Route path='/flashcards' render={() => 
+            <Route path='/flashcards' render={() =>
                 <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} score={this.state.score}/>
               }/>
           </div>
