@@ -9,10 +9,10 @@ class NavBar extends React.Component {
           <Link to="/">Home</Link>
         </a>
         <a className="item">
-          My Decks
+          <Link to="/decks">My Decks</Link>
         </a>
         <div className="right menu">
-        
+
           <a className="ui item">
             Logout
           </a>

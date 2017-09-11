@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import SingleDeckContainer from './SingleDeckContainer'
 import Welcome from './components/Welcome'
+import MyDecksContainer from './containers/MyDecksContainer'
 
 ReactDOM.render(
 	<Router>
@@ -16,8 +17,9 @@ ReactDOM.render(
 
 			<Route exact path="/" component={Welcome}/>
 			<Route path="/flashcards" component={SingleDeckContainer}/>
+      <Route path="/decks" component={MyDecksContainer}/>
 		</div>
-	</Router>, 
+	</Router>,
 	document.getElementById('root')
 	);
 
