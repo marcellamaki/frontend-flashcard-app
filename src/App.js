@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import SingleDeckContainer from './SingleDeckContainer';
 import NavBar from './components/NavBar'
+import { Route } from 'react-router-dom'
+import Score from './components/Score'
 
 
 class App extends Component {
@@ -29,7 +31,6 @@ class App extends Component {
     }
 
   render() {
-
     // console.log(this.state.allCards)
     if (this.state.allCards === "") {
       return <div></div>
@@ -37,11 +38,10 @@ class App extends Component {
       return (
         <div >
           <NavBar />
-          <div>
-            <h3 className="ui header">Your Score is: {this.state.score}</h3>
-          </div>
           <div className="ui cards" style={{margin: "auto"}}>
-            <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} />
+            <Route path='/flashcards' render={() => 
+                <SingleDeckContainer allCards={this.state.allCards.results} changeScore={this.handleScoreChange} score={this.state.score}/>
+              }/>
           </div>
         </div>
 

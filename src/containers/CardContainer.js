@@ -31,7 +31,7 @@ class CardContainer extends React.Component {
     render() {
       return(
 
-          <div className="card">
+          <div className="ui centered card">
 
             {!this.state.flipped ?
             <CardFront question={this.props.question} handleGuess={this.handleGuess}/>

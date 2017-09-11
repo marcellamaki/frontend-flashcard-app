@@ -1,5 +1,7 @@
 import React from 'react';
 import CardContainer from './containers/CardContainer'
+import {Route} from 'react-router-dom'
+import Score from './components/Score'
 
 
 class SingleDeckContainer extends React.Component {
@@ -10,14 +12,24 @@ class SingleDeckContainer extends React.Component {
   }
 
   render() {
-	  const triviaList = this.props.allCards.map((card, index) =>
-	  	<CardContainer key={index} question={card.question} answer={card.correct_answer} changeScore={this.props.changeScore} />)
+    console.log(this.props.score)
 
-    return(
-      <div className="link ui cards" >
-      	{triviaList}
-      </div>
-    )
+    if(this.props.allCards === undefined){
+      return(<div></div>)
+    } else {
+    	  const triviaList = this.props.allCards.map((card, index) =>
+    	  	<CardContainer key={index} question={card.question} answer={card.correct_answer} changeScore={this.props.changeScore} />)
+        return(
+          <div> 
+            <div>
+              <Score score={this.props.score} />
+            </div>  
+            <div className="link ui cards" >
+              {triviaList}
+            </div>
+          </div>
+        )
+    }
   }
 }
 

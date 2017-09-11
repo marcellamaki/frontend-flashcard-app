@@ -2,8 +2,8 @@ import React from 'react'
 
 const CardFront = (props) => {
 	return(
-			<div className="content">
-  			<div className="description">
+			<div className="ui content">
+  			<div className="ui description">
   				Question: {props.question.replace(/&quot;/g, '\"').replace(/&#039;/g, '\'')}
   			</div>
         <div className="extra content">

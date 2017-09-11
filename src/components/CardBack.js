@@ -4,10 +4,10 @@ const CardBack = (props) => {
 	return(
 		<div>
 			{ props.correctGuess ?
-			<div className="header">Correct Guess!</div> :
-			<div className="header">Incorrect Guess!</div>
+			<div className="ui header">Correct Guess!</div> :
+			<div className="ui header">Incorrect Guess!</div>
 			}
-				<div className="description">
+				<div className="ui description">
 	      	<p>Answer: {props.answer}</p>
 	    	</div>
 		</div>
