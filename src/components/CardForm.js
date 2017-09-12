@@ -8,8 +8,19 @@ class CardForm extends React.Component {
     this.state = {
       question: '',
       answer: true,
+      deck_id: 0
     }
 
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:3000/api/v1/decks', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(res => console.log(res))
   }
 
   handleChange = (event) => {

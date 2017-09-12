@@ -20,7 +20,7 @@ class MyDecksContainer extends React.Component {
   render() {
     return(
 
-      <DeckForm />
+      <CardForm />
   
     )
   }

@@ -18,10 +18,22 @@ class DeckForm extends React.Component {
   }
 
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    console.log(this.state)
-  }
+handleSubmit = (event) => {
+	event.preventDefault()
+
+	const data = {
+		name: this.state.name
+	}
+
+	fetch('http://localhost:3000/api/v1/decks', {
+		method: 'POST',
+		body: JSON.stringify({data}),
+		headers: {
+			"Content-Type": "application/json"
+		}
+	}).then(res => res.json())
+	.then(res => console.log(res))
+}
 
   render() {
     return (
