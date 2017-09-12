@@ -57,35 +57,19 @@ class CardForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="ui form" onSubmit={this.handleSubmit}>
+        <div className="ui form">
           <div className="field">
-                <label>Deck Name:</label>
-                <div className="ui selection dropdown">
-                    <input name="deck-name"/>
-                    <i className="dropdown icon"></i>
-                    <div className="default text">Deck Name</div>
-                    <div className="menu">
-                        <DeckDropdown deck={this.state.current_deck_names} />
-                    </div>
-                </div>
-            </div>
-            <div className="field" onChange={this.handleChange}>
-              <label>Question:</label>
-              <textarea></textarea>
-            </div>
-            <div className="field">
-              <label>Answer:</label>
-              <div className="ui radio checkbox">
-                  <input type="radio" name="answer" tabIndex="0" value={true} onClick={this.checkValue}/>
-                  <label>True</label>
-              </div>
-                <div className="ui radio checkbox">
-                    <input type="radio" name="answer" tabIndex="0" value={false} onClick={this.checkValue}/>
-                    <label>False</label>
-                </div>
-            </div>
-            <button className="ui button" type="submit">Submit</button>
-        </form>
+              <label>Country</label>
+              <select className="ui search dropdown">
+                { if (this.state.current_deck_names) { this.state.current_deck_names.map(deck => <DeckDropdown deck={deck} /> )
+              		} else {
+              			return <div>Deck Dropdown</div>
+              		}
+                }
+                <DeckDropdown deck={this.state.current_deck_names} />
+              </select>
+        </div>
+        </div>
       </div>
     )
   }
