@@ -12,7 +12,6 @@ class SingleDeckContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props.score)
 
     if(this.props.allCards === undefined){
       return(<div></div>)

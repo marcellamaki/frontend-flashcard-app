@@ -28,13 +28,6 @@ class CardForm extends React.Component {
     })
   )}
 
-  //     const DeckNames = res.map((res, index) => ('<div class="item" data-value={index}>{res.name}</div>')).join('')
-  //     })
-  // }
-
-
-// const DeckNames = res.map((result => <div class="item">{result.name}</div>))
-// console.log(DeckNames)
 
   handleChange = (event) => {
     this.setState({
@@ -55,23 +48,24 @@ class CardForm extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className="ui form">
-          <div className="field">
-              <label>Country</label>
-              <select className="ui search dropdown">
-                { if (this.state.current_deck_names) { this.state.current_deck_names.map(deck => <DeckDropdown deck={deck} /> )
-              		} else {
-              			return <div>Deck Dropdown</div>
-              		}
-                }
-                <DeckDropdown deck={this.state.current_deck_names} />
-              </select>
+    if (this.state.current_deck_names === undefined) {
+      return <div></div>
+    } else {
+      const currentDecks = this.state.current_deck_names.map(deck =>
+        <DeckDropdown deck={deck} />)
+      return (
+        <div>
+          <div className="ui form">
+            <div className="field">
+                <label>Current Decks:</label>
+                <select className="ui search dropdown">
+                  {currentDecks}
+                </select>
+          </div>
+          </div>
         </div>
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
