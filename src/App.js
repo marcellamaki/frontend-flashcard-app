@@ -5,6 +5,7 @@ import SingleDeckContainer from './SingleDeckContainer';
 import NavBar from './components/NavBar'
 import { Route } from 'react-router-dom'
 import Score from './components/Score'
+import CardForm from './components/CardForm'
 
 
 class App extends Component {
