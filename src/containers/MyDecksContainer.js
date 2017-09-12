@@ -19,9 +19,11 @@ class MyDecksContainer extends React.Component {
 
   render() {
     return(
-
-      <CardForm />
-  
+      <div>
+        <DeckForm />
+        <br></br>
+        <CardForm />
+      </div>
     )
   }
 }
