@@ -1,4 +1,5 @@
 import React from 'react';
+import DeckDropdown from './DeckDropdown'
 
 class CardForm extends React.Component {
 
@@ -9,7 +10,7 @@ class CardForm extends React.Component {
       question: '',
       answer: true,
       deck_id: 0,
-      current_deck_names: ''
+      current_deck_names: undefined
     }
 
   }
@@ -22,10 +23,14 @@ class CardForm extends React.Component {
       }
     })
     .then(res => res.json())
-    .then(res => {
-      const DeckNames = res.map((res, index) => ('<div class="item" data-value={index}>{res.name}</div>')).join('')
-      })
-  }
+    .then(res => this.setState({
+      current_deck_names: res
+    })
+  )}
+
+  //     const DeckNames = res.map((res, index) => ('<div class="item" data-value={index}>{res.name}</div>')).join('')
+  //     })
+  // }
 
 
 // const DeckNames = res.map((result => <div class="item">{result.name}</div>))
@@ -60,7 +65,7 @@ class CardForm extends React.Component {
                     <i className="dropdown icon"></i>
                     <div className="default text">Deck Name</div>
                     <div className="menu">
-                        {this.state.DeckNames}
+                        <DeckDropdown deck={this.state.current_deck_names} />
                     </div>
                 </div>
             </div>
