@@ -36,19 +36,24 @@ class CardForm extends React.Component {
   }
 
   checkValue = (event) => {
+    const answer = (event.target.value == 'true')
     this.setState({
-      answer: event.target.value
+      answer: answer
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
+    const data = {
+      question: this.state.question,
+      answer: this.state.answer,
+      deck_id: this.state.deck_id
+    }
   }
 
   updateDeckId = (event) => {
     this.setState({
-      deck_id: event.target.value
+      deck_id: parseInt(event.target.value)
     })
   }
 
