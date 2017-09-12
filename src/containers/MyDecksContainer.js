@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import CardForm from '../components/CardForm';
+import DeckForm from '../components/DeckForm'
 
 class MyDecksContainer extends React.Component {
 
@@ -18,7 +19,8 @@ class MyDecksContainer extends React.Component {
 
   render() {
     return(
-      <CardForm />
+
+      <DeckForm />
   
     )
   }
