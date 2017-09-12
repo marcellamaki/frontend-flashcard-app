@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import CardForm from '../components/CardForm';
 import DeckForm from '../components/DeckForm'
 
-class MyDecksContainer extends React.Component {
+class CreateDeck extends React.Component {
 
   componentDidMount(){
     fetch('http://localhost:3000/api/v1/users', {
@@ -28,4 +28,4 @@ class MyDecksContainer extends React.Component {
   }
 }
 
-export default MyDecksContainer;
+export default CreateDeck;

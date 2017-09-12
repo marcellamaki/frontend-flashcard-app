@@ -49,6 +49,15 @@ class CardForm extends React.Component {
       answer: this.state.answer,
       deck_id: this.state.deck_id
     }
+
+    fetch('http://localhost:3000/api/v1/cards', {
+      method: 'POST',
+      body: JSON.stringify({data}),
+      headers: {
+        'Content-Type':'application/json'
+      }
+    }).then(res => res.json())
+    .then(res => console.log(res))
   }
 
   updateDeckId = (event) => {
@@ -88,7 +97,7 @@ class CardForm extends React.Component {
                     <label>False</label>
                 </div>
             </div>
-            <button className="ui button" type="submit" onClick={this.handleSubmit}>Submit</button>
+            <button className="ui button" type="submit" onClick={this.handleSubmit}>Add Card</button>
           </div>
       </div>
       )

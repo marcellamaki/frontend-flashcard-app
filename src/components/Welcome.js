@@ -12,7 +12,7 @@ class Welcome extends React.Component {
 		    <div className="ui inverted vertical masthead center aligned segment">
 		        <div className="ui text container">
 		            <h1 className="ui inverted header center aligned">Card Flashr</h1>
-								<Link to="/flashcards"> Create a card deck </Link>
+								<Link to="/decks/new"> Create a card deck </Link>
 		        </div>
 		    </div>
 		</div>
