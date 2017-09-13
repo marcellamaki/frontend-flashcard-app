@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom'
 import Score from './components/Score'
 import CardForm from './components/CardForm'
 import AllDecksContainer from './containers/AllDecksContainer'
+import { withRouter } from 'react-router'
 
 
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
     this.setState({
       filteredCards: filteredCards
     })
-    history.push("/flashcards")
+    this.props.history.push("/flashcards")
   }
 
   //   return <SingleDeckContainer allCards={this.state.filteredCards}/>
@@ -77,4 +78,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
