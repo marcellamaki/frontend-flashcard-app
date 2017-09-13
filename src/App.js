@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SingleDeckContainer from './SingleDeckContainer';
 import NavBar from './components/NavBar'

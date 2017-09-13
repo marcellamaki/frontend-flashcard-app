@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleDeckContainer from '../SingleDeckContainer'
 import {Route} from 'react-router-dom'
+import DisplayAllDecks from '../components/DisplayAllDecks'
 
 class AllDecksContainer extends React.Component {
 
@@ -21,16 +22,17 @@ class AllDecksContainer extends React.Component {
 	}
 
 	render() {
-			console.log(this.state.allDecks)
-		return(
-			<div>
-				 <div className="ui cards" style={{margin: "auto"}}>
-            		<Route path='/decks' render={() =>
-                <SingleDeckContainer allDecks={this.state.allDecks} />
-              }/>
-          </div>
-			</div>
-		)
+		if (this.state.allDecks.length === 0) {
+			return <div>You have no decks!</div>
+		} else {
+			const myCurrentDecks = this.state.allDecks.map(deck => <DisplayAllDecks deck={deck} />)
+			return (
+				<div className="ui cards" style={{margin: "auto"}}>
+					{myCurrentDecks}
+			    </div>
+
+				)
+		}
 	}
 
 }

@@ -36,7 +36,7 @@ class CardForm extends React.Component {
   }
 
   checkValue = (event) => {
-    const answer = (event.target.value == 'true')
+    const answer = (event.target.value === 'true')
     this.setState({
       answer: answer
     })

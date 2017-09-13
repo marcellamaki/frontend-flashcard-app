@@ -1,6 +1,5 @@
 import React from 'react';
 import CardContainer from './containers/CardContainer'
-import {Route} from 'react-router-dom'
 import Score from './components/Score'
 
 
