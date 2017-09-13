@@ -5,8 +5,8 @@ import DisplayAllDecks from '../components/DisplayAllDecks'
 
 class AllDecksContainer extends React.Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			allDecks: []
@@ -25,7 +25,7 @@ class AllDecksContainer extends React.Component {
 		if (this.state.allDecks.length === 0) {
 			return <div>You have no decks!</div>
 		} else {
-			const myCurrentDecks = this.state.allDecks.map(deck => <DisplayAllDecks deck={deck} />)
+			const myCurrentDecks = this.state.allDecks.map(deck => <DisplayAllDecks deck={deck} handleFetchDeckCards={this.props.handleFetchDeckCards} key={deck.id}/>)
 			return (
 				<div className="ui cards" style={{margin: "auto"}}>
 					{myCurrentDecks}

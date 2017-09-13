@@ -21,7 +21,7 @@ ReactDOM.render(
 			<Route path="/flashcards" component={SingleDeckContainer}/>
       		<Route path="/decks/new" component={CreateDeck}/>
       		<Route path="/signup" component={SignupForm} />
-      		<Route exact path="/decks" component={AllDecksContainer} />
+      		
 		</div>
 	</Router>,
 	document.getElementById('root')

@@ -16,12 +16,12 @@ class SingleDeckContainer extends React.Component {
       return(<div></div>)
     } else {
     	  const triviaList = this.props.allCards.map((card, index) =>
-    	  	<CardContainer key={index} question={card.question} answer={card.correct_answer} changeScore={this.props.changeScore} />)
+    	  	<CardContainer key={index} question={card.question} answer={card.answer} changeScore={this.props.changeScore} />)
         return(
-          <div> 
+          <div>
             <div>
               <Score score={this.props.score} />
-            </div>  
+            </div>
             <div className="link ui cards" >
               {triviaList}
             </div>
