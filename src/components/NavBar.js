@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             My Decks
           </a>
            <a href="/decks/new" className="ui item">
-            Create New Deck
+            Create New Card
           </a>
           <div className="right menu">
             <a href="/signup" className="ui item">

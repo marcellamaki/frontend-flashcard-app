@@ -42,8 +42,12 @@ class CardForm extends React.Component {
       headers: {
         'Content-Type':'application/json'
       }
-    }).then(res => res.json())
-    .then(res => console.log(res))
+    })
+    this.setState({
+      question: '',
+      answer: true,
+      deck_id: 0,
+    })
   }
 
   updateDeckId = (event) => {
@@ -62,9 +66,9 @@ class CardForm extends React.Component {
         <div>
           <div className="ui form">
             <div className="field">
-                <label>Current Decks:</label>
+                <label>Add Card to Existing Deck</label>
                 <select className="ui search dropdown" onChange={this.updateDeckId}>
-                  <option value="">Please Select From The Menu</option>
+                  <option value="">Current Decks</option>
                   {currentDecks}
                 </select>
             </div>
