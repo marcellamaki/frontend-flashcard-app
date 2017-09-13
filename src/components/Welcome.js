@@ -12,7 +12,8 @@ class Welcome extends React.Component {
 		    <div className="ui inverted vertical masthead center aligned segment">
 		        <div className="ui text container">
 		            <h1 className="ui inverted header center aligned">Card Flashr</h1>
-								<Link to="/decks/new"> Create a card deck </Link>
+								<button className="ui inverted button"><Link to="/decks/new"> Create Custom Deck </Link></button>
+								<button className="ui inverted olive button"><Link to="/decks/random"> Generate Random Deck </Link></button>
 		        </div>
 		    </div>
 		</div>

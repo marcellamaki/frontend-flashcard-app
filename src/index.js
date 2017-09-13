@@ -9,6 +9,7 @@ import Welcome from './components/Welcome'
 import CreateDeck from './containers/CreateDeck'
 import SignupForm from './components/SignupForm'
 import AllDecksContainer from './containers/AllDecksContainer'
+import CreateRandomDeck from './containers/CreateRandomDeck'
 
 ReactDOM.render(
 	<Router>

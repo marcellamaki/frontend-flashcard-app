@@ -7,6 +7,7 @@ import Score from './components/Score'
 import CardForm from './components/CardForm'
 import AllDecksContainer from './containers/AllDecksContainer'
 import { withRouter } from 'react-router'
+import CreateRandomDeck from './containers/CreateRandomDeck'
 
 
 class App extends Component {
@@ -28,20 +29,12 @@ class App extends Component {
   }
 
   handleDeleteCard = (id) => {
-    // const allCards = this.state.filteredCards.filter(function(card) {
-    //   return id !== card.id
-    // })
-    // this.setState({
-    //   allCards: allCards,
-    //   filteredCards: allCards
-    // })
     const data = {
       id: id
     }
 
     fetch(`http:\/\/localhost:3000/api/v1/cards/${id}`, {
       method: 'POST',
-      // body: JSON.stringify(data),
       headers: {
         'Content-Type' : 'application/json'
       }
@@ -54,7 +47,6 @@ class App extends Component {
   }
 
   handleFetchDeckCards = (id) => {
-    // the component knows that it was clicked, and it knows it's id. so we want to grab that deck id,
     const filteredCards = this.state.allCards.filter(function(card) {
       return card.deck_id === id
     })
@@ -97,6 +89,11 @@ class App extends Component {
               <AllDecksContainer handleFetchDeckCards={this.handleFetchDeckCards}/>
               }/>
             </div>
+          <div className="ui cards" style={{margin: "auto"}}>
+            <Route path='/decks/random' render={() =>
+              <CreateRandomDeck changeScore={this.handleScoreChange} score={this.state.score} handleDeleteCard={this.handleDeleteCard}/>
+              }/>
+          </div>
         </div>
 
       );
