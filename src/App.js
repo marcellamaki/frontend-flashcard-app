@@ -93,7 +93,7 @@ class App extends Component {
               }/>
           </div>
           <div className="ui cards" style={{margin: "auto"}}>
-            <Route path='/decks' render={() =>
+            <Route exact path='/decks' render={() =>
               <AllDecksContainer handleFetchDeckCards={this.handleFetchDeckCards}/>
               }/>
             </div>

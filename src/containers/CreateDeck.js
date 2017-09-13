@@ -5,24 +5,62 @@ import DeckForm from '../components/DeckForm'
 
 class CreateDeck extends React.Component {
 
+  constructor() {
+    super()
+
+    this.state = {
+      deckName: '',
+      allDecks: []
+    }
+
+  }
+
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch('http://localhost:3000/api/v1/decks', {
       headers : {
         method: "GET",
         'Content-Type': 'application/json'
        }
     })
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => this.setState({
+        allDecks: res
+      }))
+  }
+
+
+  handleSubmit = (event) => {
+  	event.preventDefault()
+
+  	const data = {
+  		name: this.state.deckName
+  	}
+
+  	fetch('http://localhost:3000/api/v1/decks', {
+  		method: 'POST',
+  		body: JSON.stringify({data}),
+  		headers: {
+  			"Content-Type": "application/json"
+  		}
+  	}).then(res => res.json())
+  	.then(res => this.setState({
+      allDecks: res
+    }))
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      deckName: event.target.value
+    })
   }
 
 
   render() {
     return(
       <div>
-        <DeckForm />
+        <DeckForm name={this.state.deckName} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         <br></br>
-        <CardForm />
+        <CardForm currentDeckNames={this.state.allDecks} />
       </div>
     )
   }

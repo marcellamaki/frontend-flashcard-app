@@ -10,23 +10,9 @@ class CardForm extends React.Component {
       question: '',
       answer: true,
       deck_id: 0,
-      current_deck_names: []
     }
 
   }
-
-  componentWillMount() {
-    fetch('http://localhost:3000/api/v1/decks', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(res => this.setState({
-      current_deck_names: res
-    })
-  )}
 
 
   handleChange = (event) => {
@@ -67,10 +53,10 @@ class CardForm extends React.Component {
   }
 
   render() {
-    if (this.state.current_deck_names.length === 0) {
+    if (this.props.currentDeckNames.length === 0) {
       return <div></div>
     } else {
-      const currentDecks = this.state.current_deck_names.map(deck =>
+      const currentDecks = this.props.currentDeckNames.map(deck =>
         <DeckDropdown deck={deck} />)
       return (
         <div>
