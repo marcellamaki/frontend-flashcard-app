@@ -27,6 +27,32 @@ class App extends Component {
     }
   }
 
+  handleDeleteCard = (id) => {
+    // const allCards = this.state.filteredCards.filter(function(card) {
+    //   return id !== card.id
+    // })
+    // this.setState({
+    //   allCards: allCards,
+    //   filteredCards: allCards
+    // })
+    const data = {
+      id: id
+    }
+
+    fetch(`http:\/\/localhost:3000/api/v1/cards/${id}`, {
+      method: 'POST',
+      // body: JSON.stringify(data),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(res => this.setState({
+        allCards: res,
+        filteredCards: res
+      })).then(console.log("I WORKED SOMEHOW"))
+  }
+
   handleFetchDeckCards = (id) => {
     // the component knows that it was clicked, and it knows it's id. so we want to grab that deck id,
     const filteredCards = this.state.allCards.filter(function(card) {
@@ -63,7 +89,7 @@ class App extends Component {
           <NavBar />
           <div className="ui cards" style={{margin: "auto"}}>
             <Route path='/flashcards' render={() =>
-              <SingleDeckContainer allCards={this.state.filteredCards} changeScore={this.handleScoreChange} score={this.state.score}/>
+              <SingleDeckContainer allCards={this.state.filteredCards} changeScore={this.handleScoreChange} score={this.state.score} handleDeleteCard={this.handleDeleteCard}/>
               }/>
           </div>
           <div className="ui cards" style={{margin: "auto"}}>

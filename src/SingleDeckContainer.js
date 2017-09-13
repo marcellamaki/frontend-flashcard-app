@@ -15,7 +15,7 @@ class SingleDeckContainer extends React.Component {
       return(<div></div>)
     } else {
     	  const triviaList = this.props.allCards.map((card, index) =>
-    	  	<CardContainer key={index} question={card.question} answer={card.answer} changeScore={this.props.changeScore} />)
+    	  	<CardContainer key={index} question={card.question} id={card.id} answer={card.answer} changeScore={this.props.changeScore} handleDeleteCard={this.props.handleDeleteCard} />)
         return(
           <div>
             <div>

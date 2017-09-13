@@ -29,7 +29,6 @@ class CardContainer extends React.Component {
 
     render() {
       return(
-
           <div className="ui centered card">
 
             {!this.state.flipped ?
@@ -37,6 +36,12 @@ class CardContainer extends React.Component {
               :
             <CardBack answer={this.props.answer} correctGuess={this.state.correctGuess}/>
             }
+            <div className="extra content">
+              <span className="right floated icon" onClick={() =>this.props.handleDeleteCard(this.props.id)}>
+                <i className="remove red icon"></i>
+                Delete Card
+              </span>
+            </div>
           </div>
 
       )
