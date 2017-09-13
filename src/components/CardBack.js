@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CardBack = (props) => {
+	console.log(props)
 	return(
 		<div>
 			{ props.correctGuess ?
@@ -8,7 +9,7 @@ const CardBack = (props) => {
 			<div className="ui header">Incorrect Guess!</div>
 			}
 				<div className="ui description">
-	      	<p>Answer: {props.answer}</p>
+	      	<p>Answer: {props.answer.toString()}</p>
 	    	</div>
 		</div>
 	)

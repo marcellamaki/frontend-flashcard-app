@@ -11,7 +11,6 @@ class SingleDeckContainer extends React.Component {
   }
 
   render() {
-
     if(this.props.allCards === undefined){
       return(<div></div>)
     } else {

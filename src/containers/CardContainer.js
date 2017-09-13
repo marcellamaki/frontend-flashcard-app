@@ -18,9 +18,8 @@ class CardContainer extends React.Component {
     }
 
     handleGuess = (event) => {
-      // console.log(this.state.answer)
-      // console.log(event.target.dataset.value)
-      const isCorrect = this.props.answer === event.target.dataset.value
+      const guess = (event.target.dataset.value === "True")
+      const isCorrect = this.props.answer === guess
       this.setState({
         flipped: !this.state.flipped,
         correctGuess: isCorrect
